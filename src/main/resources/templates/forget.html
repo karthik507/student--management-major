@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>College</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css" />
+<!-- Default theme -->
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css" />
+<!-- Semantic UI theme -->
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css" />
+<script
+	src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.wrap-input200 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	width: 100%;
+	height: 75 px;
+	position: relative;
+	border: 1 px solid #e0e0e0;
+	border-bottom: none;
+	background-color: #fff;
+}
+
+.wrap-input200.rs1 {
+	border-top-left-radius: 12 px !important;
+	border-right: none;
+}
+</style>
+
+<script>
+	function sendMail() {
+
+		var inputPayload = {
+			"email" : $("#emailId").val()
+		}
+		var inputPayloadString = JSON.stringify(inputPayload);
+		jQuery.ajax({
+			type : 'POST',
+			cache : true,
+			async : false,
+			contentType : 'application/json',
+			dataType : 'json',
+			url : location.origin + "/sendMail",
+			data : inputPayloadString,
+			success : function(data) {
+				window.location.assign(location.origin + "/signupCompletion")
+			},
+			error : function(data) {
+				alertify.error("Email not exists!!");
+			}
+		});
+
+	}
+</script>
+
+
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-b-160 p-t-50">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-43"> Forget Password</span>
+
+					<div class="wrap-input100 rs1 validate-input"
+						data-validate="Email is required" style="width: 100% !important">
+						<input class="input100" type="text" name="username" id="emailId"> <span
+							class="label-input100">Email</span>
+					</div>
+
+
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="sendMail();event.preventDefault();">Send reset link</button>
+					</div>
+
+					<div class="text-center w-full p-t-23">
+						<a href="#" class="txt1"> Sign In? </a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
